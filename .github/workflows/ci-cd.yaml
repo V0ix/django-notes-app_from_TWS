@@ -29,7 +29,7 @@ jobs:
       - name: Compute image vars
         id: vars
         run: |
-          IMAGE=docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/python-app
+          IMAGE=${{ secrets.DOCKER_HUB_USERNAME }}
           TAG=${{ github.sha }}
           echo "image=$IMAGE" >> $GITHUB_OUTPUT
           echo "tag=$TAG" >> $GITHUB_OUTPUT
@@ -39,8 +39,8 @@ jobs:
         run: |
           IMAGE=${{ steps.vars.outputs.image }}
           TAG=${{ steps.vars.outputs.tag }}
-          docker compose build myproject-app:latest
-          docker tag myproject-app:latest $IMAGE:$TAG
+          docker compose build django_app
+          docker tag django_app:latest $IMAGE:$TAG
           docker push $IMAGE:$TAG
 
       - name: Install yq
