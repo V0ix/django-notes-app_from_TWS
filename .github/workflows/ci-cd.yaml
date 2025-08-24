@@ -39,7 +39,7 @@ jobs:
           IMAGE=${{ steps.vars.outputs.image }}
           TAG=${{ steps.vars.outputs.tag }}
           docker compose build django_app
-          docker tag django_app:latest $IMAGE:$TAG
+          docker tag django_app $IMAGE:$TAG
           docker push $IMAGE:$TAG
 
       - name: Install yq
