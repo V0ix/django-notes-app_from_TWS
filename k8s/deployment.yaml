@@ -49,7 +49,7 @@ spec:
         - name: regcred
       containers:
         - name: demo
-          image: "vishal09taware/myapp:39266d57c5c4b77b7ee5a9d28b8d065be500eaa6"
+          image: "vishal09taware/myapp:e5d4c47f1b01fd908ccaa80da933201569176a16"
           ports:
             - containerPort: 8080
           command: ["sh", "-c"]
