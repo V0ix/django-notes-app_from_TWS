@@ -1,4 +1,3 @@
-
 # .github/workflows/ci-cd.yml
 name: CI-CD with Docker Compose + ArgoCD
 
@@ -31,16 +30,16 @@ jobs:
         run: |
           USER=${{ secrets.DOCKER_HUB_USERNAME }}
           TAG=${{ github.sha }}
+          IMAGE=$USER/myapp   # 👈 set your repo name here
           echo "image=$IMAGE" >> $GITHUB_OUTPUT
           echo "tag=$TAG" >> $GITHUB_OUTPUT
 
-      # 👇 Use docker-compose to build the app image
       - name: Build image with Docker Compose
         run: |
           IMAGE=${{ steps.vars.outputs.image }}
           TAG=${{ steps.vars.outputs.tag }}
           docker compose build django_app
-          docker tag django_app:latest $USER/$IMAGE:$TAG
+          docker tag django_app:latest $IMAGE:$TAG
           docker push $IMAGE:$TAG
 
       - name: Install yq
