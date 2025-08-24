@@ -39,7 +39,7 @@ jobs:
         run: |
           IMAGE=${{ steps.vars.outputs.image }}
           TAG=${{ steps.vars.outputs.tag }}
-          docker compose build    # build only the 'app' service
+          docker compose build myproject-app:latest
           docker tag myproject-app:latest $IMAGE:$TAG
           docker push $IMAGE:$TAG
 
