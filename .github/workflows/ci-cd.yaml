@@ -51,7 +51,7 @@ jobs:
         run: |
           FILE=k8s/deployment.yaml
           NEW_IMAGE="${{ steps.vars.outputs.image }}:${{ steps.vars.outputs.tag }}"
-          yq -i '(.spec.template.spec.containers[] | select(.name=="python-app").image) = strenv(NEW_IMAGE)' "$FILE"
+          yq -i '(.spec.template.spec.containers[] | select(.name=="demo").image) = strenv(NEW_IMAGE)' "$FILE"
 
       - name: Commit & push manifest change
         run: |
