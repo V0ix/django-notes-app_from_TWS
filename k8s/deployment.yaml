@@ -18,6 +18,8 @@ spec:
       labels:
         app: demo-app
     spec:
+      imagePUllSecrets:
+        - name: regcred
       containers:
         - name: demo
           image: vishal09taware/myproject-github-action:latest
