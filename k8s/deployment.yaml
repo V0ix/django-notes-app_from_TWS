@@ -22,7 +22,7 @@ spec:
         - name: regcred
       containers:
         - name: demo
-          image: vishal09taware/myproject-github-action:latest
+          image: ""
           ports:
             - containerPort: 8080
           imagePullPolicy: IfNotPresent
