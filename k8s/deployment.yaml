@@ -22,7 +22,7 @@ spec:
         - name: regcred
       containers:
         - name: demo
-          image: ""
+          image: "vishal09taware/myapp:39266d57c5c4b77b7ee5a9d28b8d065be500eaa6"
           ports:
             - containerPort: 8080
           imagePullPolicy: IfNotPresent
